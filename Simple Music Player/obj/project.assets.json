@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "ID3/0.6.0": {
+        "type": "package",
+        "dependencies": {
+          "JetBrains.Annotations": "2018.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Id3.Net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Id3.Net.dll": {}
+        }
+      },
+      "JetBrains.Annotations/2018.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -9,6 +30,29 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Win32.Registry/4.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.7.0",
+          "System.Security.Principal.Windows": "4.7.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "Microsoft.Win32.SystemEvents/5.0.0": {
@@ -27,6 +71,97 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "NAudio/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Asio": "2.0.0",
+          "NAudio.Core": "2.0.0",
+          "NAudio.Midi": "2.0.0",
+          "NAudio.Wasapi": "2.0.0",
+          "NAudio.WinForms": "2.0.0",
+          "NAudio.WinMM": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.dll": {}
+        }
+      },
+      "NAudio.Asio/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Asio.dll": {}
+        }
+      },
+      "NAudio.Core/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {}
+        }
+      },
+      "NAudio.Midi/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Midi.dll": {}
+        }
+      },
+      "NAudio.Wasapi/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Wasapi.dll": {}
+        }
+      },
+      "NAudio.WinForms/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.WinMM": "2.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NAudio.WinForms.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "NAudio.WinMM/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NAudio.Core": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.WinMM.dll": {}
         }
       },
       "System.Configuration.ConfigurationManager/5.0.0": {
@@ -151,6 +286,42 @@
     }
   },
   "libraries": {
+    "ID3/0.6.0": {
+      "sha512": "7oHf3mjkeJp5xHAOqE0y9xxnFbJH7VifL1EHjRNHY6LiC2LeMERTTmEQBJXaqrIJ5KgehUkY5XhuskaPoanUqA==",
+      "type": "package",
+      "path": "id3/0.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "id3.0.6.0.nupkg.sha512",
+        "id3.nuspec",
+        "lib/net40/Id3.Net.dll",
+        "lib/net40/Id3.Net.xml",
+        "lib/netstandard2.0/Id3.Net.dll",
+        "lib/netstandard2.0/Id3.Net.xml"
+      ]
+    },
+    "JetBrains.Annotations/2018.3.0": {
+      "sha512": "Hbt5edAd7OfnYwsRayYguECzIJ4FUWDGjeEHsmxIgEpBbqZglhpxqjPWnWN/pEQM1HFGojMrR9dsywmC8pPTeQ==",
+      "type": "package",
+      "path": "jetbrains.annotations/2018.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jetbrains.annotations.2018.3.0.nupkg.sha512",
+        "jetbrains.annotations.nuspec",
+        "lib/net20/JetBrains.Annotations.dll",
+        "lib/net20/JetBrains.Annotations.xml",
+        "lib/netstandard1.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard1.0/JetBrains.Annotations.dll",
+        "lib/netstandard1.0/JetBrains.Annotations.xml",
+        "lib/netstandard2.0/JetBrains.Annotations.deps.json",
+        "lib/netstandard2.0/JetBrains.Annotations.dll",
+        "lib/netstandard2.0/JetBrains.Annotations.xml",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
+        "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
@@ -165,6 +336,53 @@
         "microsoft.netcore.platforms.5.0.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Win32.Registry/4.7.0": {
+      "sha512": "KSrRMb5vNi0CWSGG1++id2ZOs/1QhRqROt+qgbEAdQuGjGrFcl4AOl4/exGPUYz2wUnU42nvJqon1T3U0kPXLA==",
+      "type": "package",
+      "path": "microsoft.win32.registry/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net46/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.dll",
+        "lib/net461/Microsoft.Win32.Registry.xml",
+        "lib/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "microsoft.win32.registry.4.7.0.nupkg.sha512",
+        "microsoft.win32.registry.nuspec",
+        "ref/net46/Microsoft.Win32.Registry.dll",
+        "ref/net461/Microsoft.Win32.Registry.dll",
+        "ref/net461/Microsoft.Win32.Registry.xml",
+        "ref/net472/Microsoft.Win32.Registry.dll",
+        "ref/net472/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "ref/netstandard1.3/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/de/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/es/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/fr/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/it/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ja/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ko/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/ru/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/zh-hans/Microsoft.Win32.Registry.xml",
+        "ref/netstandard1.3/zh-hant/Microsoft.Win32.Registry.xml",
+        "ref/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "ref/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/unix/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
+        "runtimes/win/lib/net46/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/net461/Microsoft.Win32.Registry.xml",
+        "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
+        "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -195,6 +413,102 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "NAudio/2.0.0": {
+      "sha512": "ZjQfWM3jBTpdHWApsbBP3Mb3ZvXZ2eK6MWED9YeuXwbR+Kfz5M5lHdLTVADAqOHyBDqSnvwFsQCAWWRfuGeG3w==",
+      "type": "package",
+      "path": "naudio/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.dll",
+        "lib/netstandard2.0/NAudio.xml",
+        "license.txt",
+        "naudio-icon.png",
+        "naudio.2.0.0.nupkg.sha512",
+        "naudio.nuspec"
+      ]
+    },
+    "NAudio.Asio/2.0.0": {
+      "sha512": "/Pd51zAS2L3+MK/dJ5VrInz6ggHUie9j1qCXysXL3Vj53p9A2RxjpIZafuyba2ZdeMKaOMOHXdtkUqFdKqVMQg==",
+      "type": "package",
+      "path": "naudio.asio/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Asio.dll",
+        "naudio-icon.png",
+        "naudio.asio.2.0.0.nupkg.sha512",
+        "naudio.asio.nuspec"
+      ]
+    },
+    "NAudio.Core/2.0.0": {
+      "sha512": "knmGOIYbzn9ZGkFcVs5d3zEYvi50jVriyEirVtAHjkcDoo2ziK32bZb7KkFARLD4lhCGkqp6uT0+0fc4JIfQcw==",
+      "type": "package",
+      "path": "naudio.core/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Core.dll",
+        "naudio-icon.png",
+        "naudio.core.2.0.0.nupkg.sha512",
+        "naudio.core.nuspec"
+      ]
+    },
+    "NAudio.Midi/2.0.0": {
+      "sha512": "25/wjDvc/SX8jHb/+F6+lzz7FRFiSujl9N6qq1KcFqfBFS6K1KtdclaZz+01B9PErwQUoraGCdruhiad6tYBvQ==",
+      "type": "package",
+      "path": "naudio.midi/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Midi.dll",
+        "naudio-icon.png",
+        "naudio.midi.2.0.0.nupkg.sha512",
+        "naudio.midi.nuspec"
+      ]
+    },
+    "NAudio.Wasapi/2.0.0": {
+      "sha512": "7ES+jfZyOooBp86gql9BZ/OjKFmGfLaSLCtJagtCYiRGxfauHp4hXyeuwxS2mPLBxBGxBo9oGThN6y3QY+/w/w==",
+      "type": "package",
+      "path": "naudio.wasapi/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Wasapi.dll",
+        "lib/uap10.0.17763/NAudio.Wasapi.dll",
+        "lib/uap10.0.17763/NAudio.Wasapi.pri",
+        "naudio-icon.png",
+        "naudio.wasapi.2.0.0.nupkg.sha512",
+        "naudio.wasapi.nuspec"
+      ]
+    },
+    "NAudio.WinForms/2.0.0": {
+      "sha512": "j65uncDKEhTh4z1IejmtnNhPBA4y6V9zEGnsLA3mm3JzX2e3flmL5UMadQUdx83UlmtF/8t5ichcmUhSGhrQHg==",
+      "type": "package",
+      "path": "naudio.winforms/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/NAudio.WinForms.dll",
+        "lib/netcoreapp3.1/NAudio.WinForms.dll",
+        "naudio-icon.png",
+        "naudio.winforms.2.0.0.nupkg.sha512",
+        "naudio.winforms.nuspec"
+      ]
+    },
+    "NAudio.WinMM/2.0.0": {
+      "sha512": "Q1trk5d9cdSRJSK/PXceUgpwIH7FivxkiE4nzmk0rl3qSM4ViHcpc2Fe/W1VUz2dHtGwOqOwpgSch7LHv7F48A==",
+      "type": "package",
+      "path": "naudio.winmm/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.WinMM.dll",
+        "naudio-icon.png",
+        "naudio.winmm.2.0.0.nupkg.sha512",
+        "naudio.winmm.nuspec"
       ]
     },
     "System.Configuration.ConfigurationManager/5.0.0": {
@@ -468,6 +782,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ID3 >= 0.6.0",
+      "NAudio >= 2.0.0",
       "System.Configuration.ConfigurationManager >= 5.0.0"
     ]
   },
@@ -477,11 +793,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\Simple Music Player.csproj",
+      "projectUniqueName": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
       "projectName": "Simple Music Player",
-      "projectPath": "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\Simple Music Player.csproj",
+      "projectPath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
       "packagesPath": "C:\\Users\\kg5in\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\obj\\",
+      "outputPath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kg5in\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -510,6 +826,14 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "ID3": {
+            "target": "Package",
+            "version": "[0.6.0, )"
+          },
+          "NAudio": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "System.Configuration.ConfigurationManager": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -528,6 +852,9 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\Simple Music Player.csproj": {}
+    "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\Simple Music Player.csproj": {
+    "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\Simple Music Player.csproj",
+        "projectUniqueName": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
         "projectName": "Simple Music Player",
-        "projectPath": "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\Simple Music Player.csproj",
+        "projectPath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
         "packagesPath": "C:\\Users\\kg5in\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kg5in\\source\\repos\\Simple Music Player\\Simple Music Player\\obj\\",
+        "outputPath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kg5in\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "ID3": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -58,6 +66,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"

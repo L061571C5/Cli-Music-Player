@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Simple_Music_Player
 {
-    class MusicData
+    static class MusicData
     {
-        public string[] queue;
-        public object nowPlaying;
-        public int seek;
+        public static List<string> queue = new List<string>();
+        public static object nowPlaying;
+        public static int seek;
     }
 }
