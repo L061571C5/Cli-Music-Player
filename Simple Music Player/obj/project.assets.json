@@ -794,7 +794,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
-      "projectName": "Simple Music Player",
+      "projectName": "Cli Music Player",
       "projectPath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
       "packagesPath": "C:\\Users\\kg5in\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\obj\\",
