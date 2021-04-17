@@ -1,13 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
 using System.Threading;
-using TagLib;
 namespace Simple_Music_Player
 {
 
