@@ -9,7 +9,5 @@ namespace Simple_Music_Player
     static class MusicData
     {
         public static List<string> queue = new List<string>();
-        public static object nowPlaying;
-        public static int seek;
     }
 }
