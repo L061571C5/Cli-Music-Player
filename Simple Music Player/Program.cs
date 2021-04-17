@@ -108,7 +108,7 @@ namespace Simple_Music_Player
                     TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
                     Console.Clear();
                         Console.WriteLine("Title: {0}", file.Tag.Title);
-                        Console.WriteLine("Artist: {0}", file.Tag.Artists);
+                        Console.WriteLine("Artist: {0}", file.Tag.Performers);
                         Console.WriteLine("Album: {0}", file.Tag.Album);
                     double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
             TimeSpan ts = TimeSpan.FromMilliseconds(ms);

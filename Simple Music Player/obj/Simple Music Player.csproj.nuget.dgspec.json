@@ -48,10 +48,6 @@
               "target": "Package",
               "version": "[2.0.0, )"
             },
-            "System.Configuration.ConfigurationManager": {
-              "target": "Package",
-              "version": "[5.0.0, )"
-            },
             "taglib-sharp-netstandard2.0": {
               "target": "Package",
               "version": "[2.1.0, )"
