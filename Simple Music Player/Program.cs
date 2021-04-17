@@ -25,8 +25,13 @@ namespace Simple_Music_Player
             switch (selection[0])
             {
                 case '1':
-                    Console.WriteLine("What directory has music files?");
+                    Console.WriteLine("What directory has music files? (type cancel to return)");
                     directory = Console.ReadLine();
+                    if (directory == "cancel")
+                    {
+                        Main(args);
+                        return;
+                    }
                     if (dirChk(directory, false) == "null")
                     {
                         Main(args);
@@ -36,8 +41,13 @@ namespace Simple_Music_Player
                     playMusic(args);
                     break;
                 case '2':
-                    Console.WriteLine("What directory has music files?");
+                    Console.WriteLine("What directory has music files? (type cancel to return)");
                     directory = Console.ReadLine();
+                    if (directory == "cancel")
+                    {
+                        Main(args);
+                        return;
+                    }
                     if (dirChk(directory, false) == "null")
                     {
                         Main(args);
@@ -47,8 +57,13 @@ namespace Simple_Music_Player
                     playMusic(args);
                     break;
                 case '3':
-                    Console.WriteLine("What file do you want to play?");
+                    Console.WriteLine("What file do you want to play? (type cancel to return)");
                     directory = Console.ReadLine();
+                    if (directory == "cancel")
+                    {
+                        Main(args);
+                        return;
+                    }
                     if (dirChk(directory, true) == "null")
                     {
                         Main(args);
