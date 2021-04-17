@@ -120,4 +120,8 @@ namespace Simple_Music_Player
             mainProgram(args);
         }
     }
+    static class MusicData
+    {
+        public static List<string> queue = new List<string>();
+    }
 }
