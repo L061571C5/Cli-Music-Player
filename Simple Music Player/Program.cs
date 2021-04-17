@@ -7,7 +7,7 @@ using System.Linq;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using System.Threading;
-using Id3;
+using TagLib;
 namespace Simple_Music_Player
 {
 
@@ -47,7 +47,7 @@ namespace Simple_Music_Player
                         Main(args);
                         return;
                     }
-                    MusicData.queue = ProcessDirectory(directory).OrderBy(x => Guid.NewGuid()).ToList();
+                    MusicData.queue = (ProcessDirectory(directory)).OrderBy(x => Guid.NewGuid()).ToList();
                     playMusic(args);
                     break;
                 case '3':
@@ -78,7 +78,7 @@ namespace Simple_Music_Player
             switch (file)
             {
                 case true:
-                    if (!File.Exists(dir))
+                    if (!System.IO.File.Exists(dir))
                     {
                         Console.WriteLine("That is not a vaild file.");
                         return "null";
@@ -105,14 +105,11 @@ namespace Simple_Music_Player
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
                     Thread.Sleep(1000);
-                    using (var mp3 = new Mp3(MusicData.queue[0]))
-                    {
-                        Id3Tag tag = mp3.GetTag(Id3TagFamily.Version2X);
-                        Console.Clear();
-                        Console.WriteLine("Title: {0}", tag.Title);
-                        Console.WriteLine("Artist: {0}", tag.Artists);
-                        Console.WriteLine("Album: {0}", tag.Album);
-                    }
+                    TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
+                    Console.Clear();
+                        Console.WriteLine("Title: {0}", file.Tag.Title);
+                        Console.WriteLine("Artist: {0}", file.Tag.Artists);
+                        Console.WriteLine("Album: {0}", file.Tag.Album);
                     double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
             TimeSpan ts = TimeSpan.FromMilliseconds(ms);
                     Console.WriteLine(ts.ToString(@"hh\:mm\:ss"));

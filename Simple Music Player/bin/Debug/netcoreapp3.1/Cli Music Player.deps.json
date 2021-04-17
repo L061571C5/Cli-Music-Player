@@ -6,33 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "Simple Music Player/1.0.0": {
+      "Cli Music Player/1.0.0": {
         "dependencies": {
-          "ID3": "0.6.0",
           "NAudio": "2.0.0",
-          "System.Configuration.ConfigurationManager": "5.0.0"
+          "System.Configuration.ConfigurationManager": "5.0.0",
+          "taglib-sharp-netstandard2.0": "2.1.0"
         },
         "runtime": {
-          "Simple Music Player.dll": {}
-        }
-      },
-      "ID3/0.6.0": {
-        "dependencies": {
-          "JetBrains.Annotations": "2018.3.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Id3.Net.dll": {
-            "assemblyVersion": "0.6.0.0",
-            "fileVersion": "0.6.0.0"
-          }
-        }
-      },
-      "JetBrains.Annotations/2018.3.0": {
-        "runtime": {
-          "lib/netstandard2.0/JetBrains.Annotations.dll": {
-            "assemblyVersion": "2018.3.0.0",
-            "fileVersion": "2018.3.0.0"
-          }
+          "Cli Music Player.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/5.0.0": {},
@@ -267,28 +248,22 @@
             "fileVersion": "5.0.20.51904"
           }
         }
+      },
+      "taglib-sharp-netstandard2.0/2.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/taglib-sharp.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
       }
     }
   },
   "libraries": {
-    "Simple Music Player/1.0.0": {
+    "Cli Music Player/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "ID3/0.6.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-7oHf3mjkeJp5xHAOqE0y9xxnFbJH7VifL1EHjRNHY6LiC2LeMERTTmEQBJXaqrIJ5KgehUkY5XhuskaPoanUqA==",
-      "path": "id3/0.6.0",
-      "hashPath": "id3.0.6.0.nupkg.sha512"
-    },
-    "JetBrains.Annotations/2018.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Hbt5edAd7OfnYwsRayYguECzIJ4FUWDGjeEHsmxIgEpBbqZglhpxqjPWnWN/pEQM1HFGojMrR9dsywmC8pPTeQ==",
-      "path": "jetbrains.annotations/2018.3.0",
-      "hashPath": "jetbrains.annotations.2018.3.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",
@@ -408,6 +383,13 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "taglib-sharp-netstandard2.0/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-w45LreEPpV/vOfgpYBI1cNqiLvj8yQ8f7kJaMYtzTAsg26ZdHWnh5vPuy2/F9tCKhmgNB0s+zOBwdcEb4qk3Tg==",
+      "path": "taglib-sharp-netstandard2.0/2.1.0",
+      "hashPath": "taglib-sharp-netstandard2.0.2.1.0.nupkg.sha512"
     }
   }
 }

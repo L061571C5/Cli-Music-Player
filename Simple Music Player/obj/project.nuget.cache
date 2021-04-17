@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "+ESipch29h8sidOs93FVnUJjmm8IB1tNLiBH9q+jEwEuBLdL8d1ufodz/j2z+csBEUzaF+pWj0NjlaWs2Ll/xw==",
+  "dgSpecHash": "dGJHoSAo7F8qBaL3J2doIVg+hSR30pUqQLGArDeJyk9+nkw5HCfX9aP7ppauyfmQNwBC7P3HMkD1GKOPGc3xBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\kg5in\\Documents\\GitHub\\Cli-Music-Player\\Simple Music Player\\Simple Music Player.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kg5in\\.nuget\\packages\\id3\\0.6.0\\id3.0.6.0.nupkg.sha512",
-    "C:\\Users\\kg5in\\.nuget\\packages\\jetbrains.annotations\\2018.3.0\\jetbrains.annotations.2018.3.0.nupkg.sha512",
     "C:\\Users\\kg5in\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\kg5in\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\kg5in\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
@@ -22,7 +20,8 @@
     "C:\\Users\\kg5in\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
     "C:\\Users\\kg5in\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\kg5in\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\kg5in\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\kg5in\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\kg5in\\.nuget\\packages\\taglib-sharp-netstandard2.0\\2.1.0\\taglib-sharp-netstandard2.0.2.1.0.nupkg.sha512"
   ],
   "logs": []
 }

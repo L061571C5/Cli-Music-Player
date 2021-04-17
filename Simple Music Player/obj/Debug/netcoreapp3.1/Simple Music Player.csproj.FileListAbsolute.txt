@@ -29,13 +29,6 @@ C:\Users\kg5in\source\repos\Simple Music Player\Simple Music Player\bin\Debug\ne
 C:\Users\kg5in\source\repos\Simple Music Player\Simple Music Player\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\kg5in\source\repos\Simple Music Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.csproj.CopyComplete
 C:\Users\kg5in\source\repos\Simple Music Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.dll.config
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.exe
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.dll.config
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.deps.json
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.runtimeconfig.json
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.runtimeconfig.dev.json
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.dll
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Simple Music Player.pdb
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
@@ -57,8 +50,6 @@ C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\n
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.AssemblyInfo.cs
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.csproj.CoreCompileInputs.cache
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.csproj.CopyComplete
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.dll
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.pdb
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Simple Music Player.genruntimeconfig.cache
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\NAudio.dll
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\NAudio.Asio.dll
@@ -67,5 +58,13 @@ C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\n
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\NAudio.Wasapi.dll
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\NAudio.WinForms.dll
 C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\NAudio.WinMM.dll
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Id3.Net.dll
-C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\JetBrains.Annotations.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.exe
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.dll.config
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.deps.json
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.runtimeconfig.json
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.runtimeconfig.dev.json
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\Cli Music Player.pdb
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Debug\netcoreapp3.1\taglib-sharp.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Cli Music Player.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Debug\netcoreapp3.1\Cli Music Player.pdb
