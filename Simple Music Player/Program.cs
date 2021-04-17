@@ -49,7 +49,11 @@ namespace Simple_Music_Player
                 case '3':
                     Console.WriteLine("What file do you want to play?");
                     directory = Console.ReadLine();
-                    dirChk(directory, true);
+                    if (dirChk(directory, true) == "null")
+                    {
+                        Main(args);
+                        return;
+                    }
                     MusicData.queue.Add(directory);
                     playMusic(args);
                     break;
