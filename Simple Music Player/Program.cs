@@ -102,17 +102,17 @@ namespace Simple_Music_Player
             {
                 outputDevice.Init(audioFile);
                 outputDevice.Play();
+                TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
+                Console.Clear();
+                Console.WriteLine("Title: {0}", file.Tag.Title);
+                Console.WriteLine("Artist: {0}", file.Tag.Performers);
+                Console.WriteLine("Album: {0}", file.Tag.Album);
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
                     Thread.Sleep(1000);
-                    TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
-                    Console.Clear();
-                        Console.WriteLine("Title: {0}", file.Tag.Title);
-                        Console.WriteLine("Artist: {0}", file.Tag.Performers);
-                        Console.WriteLine("Album: {0}", file.Tag.Album);
                     double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
             TimeSpan ts = TimeSpan.FromMilliseconds(ms);
-                    Console.WriteLine(ts.ToString(@"hh\:mm\:ss"));
+                    RewriteLine(4, ts.ToString(@"hh\:mm\:ss"));
                 }
                 MusicData.queue.RemoveAt(0);
                 if (MusicData.queue.Count() >= 1)
@@ -123,9 +123,17 @@ namespace Simple_Music_Player
             }
             mainProgram(args);
         }
+        public static void RewriteLine(int lineNumber, String newText)
+        {
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, lineNumber - 1);
+            Console.Write(newText); Console.WriteLine(new string(' ', Console.WindowWidth - newText.Length));
+            Console.SetCursorPosition(0, currentLineCursor);
+        }
     }
     static class MusicData
     {
         public static List<string> queue = new List<string>();
     }
+ 
 }
