@@ -1,0 +1,21 @@
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\Cli Music Player.exe
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\Cli Music Player.deps.json
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\Cli Music Player.runtimeconfig.json
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\Cli Music Player.runtimeconfig.dev.json
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\Cli Music Player.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\Cli Music Player.pdb
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.Asio.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.Core.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.Midi.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.Wasapi.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.WinForms.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\NAudio.WinMM.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\bin\Release\netcoreapp3.1\taglib-sharp.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Simple Music Player.AssemblyInfoInputs.cache
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Simple Music Player.AssemblyInfo.cs
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Simple Music Player.csproj.CoreCompileInputs.cache
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Simple Music Player.csproj.CopyComplete
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Cli Music Player.dll
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Cli Music Player.pdb
+C:\Users\kg5in\Documents\GitHub\Cli-Music-Player\Simple Music Player\obj\Release\netcoreapp3.1\Simple Music Player.genruntimeconfig.cache
