@@ -3,18 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple Music Player", "Simple Music Player\Simple Music Player.csproj", "{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simple Music Player", "Simple Music Player\Simple Music Player.csproj", "{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Debug|x86.ActiveCfg = Release|x86
+		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Debug|x86.Build.0 = Release|x86
 		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Release|x86.ActiveCfg = Release|x86
+		{68F287A0-14D8-4ACA-8514-DCD9A07FD0F5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,7 +15,6 @@ namespace Simple_Music_Player
         }
         static void mainProgram(string[] args)
         {
-            
             string directory;
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("[1] Play Directory");
@@ -125,9 +124,10 @@ namespace Simple_Music_Player
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
                     Thread.Sleep(1000);
+                    var time = audioFile.TotalTime;
                     double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
             TimeSpan ts = TimeSpan.FromMilliseconds(ms);
-                    RewriteLine(4, ts.ToString(@"hh\:mm\:ss"));
+                    RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
                 }
                 MusicData.queue.RemoveAt(0);
                 if (MusicData.queue.Count() >= 1)
