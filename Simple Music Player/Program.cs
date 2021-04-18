@@ -118,16 +118,29 @@ namespace Simple_Music_Player
                 outputDevice.Play();
                 TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
                 Console.Clear();
-                Console.WriteLine("Title: {0}", file.Tag.Title);
-                Console.WriteLine("Artist: {0}", file.Tag.Performers);
-                Console.WriteLine("Album: {0}", file.Tag.Album);
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
                     Thread.Sleep(1000);
                     var time = audioFile.TotalTime;
                     double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
             TimeSpan ts = TimeSpan.FromMilliseconds(ms);
+                    var artist = file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
+                    RewriteLine(1, "Title: " + file.Tag.Title);
+                    RewriteLine(2, "Artist: " + artist) ; 
+                    RewriteLine(3, "Album: " + file.Tag.Album);
                     RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
+                    RewriteLine(5, "Type \"help\" for a commands list");
+                    Console.SetCursorPosition(0, 4);
+                    var input = Console.ReadLine();
+                   switch (input)
+                    {
+                        case "stop":
+                            Main(args);
+                            break;
+                        case "skip":
+
+                            break;
+                    }
                 }
                 MusicData.queue.RemoveAt(0);
                 if (MusicData.queue.Count() >= 1)
