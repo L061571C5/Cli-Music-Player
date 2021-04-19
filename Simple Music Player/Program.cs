@@ -106,7 +106,7 @@ namespace Simple_Music_Player
                     }
                     break;
             }
-               
+
             return dir;
         }
         public static void playMusic(string[] args)
@@ -118,27 +118,70 @@ namespace Simple_Music_Player
                 outputDevice.Play();
                 TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
                 Console.Clear();
-                while (outputDevice.PlaybackState == PlaybackState.Playing)
+                var i = 5;
+                while (outputDevice.PlaybackState == PlaybackState.Playing || outputDevice.PlaybackState == PlaybackState.Paused)
                 {
                     Thread.Sleep(1000);
                     var time = audioFile.TotalTime;
                     double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
-            TimeSpan ts = TimeSpan.FromMilliseconds(ms);
+                    TimeSpan ts = TimeSpan.FromMilliseconds(ms);
                     var artist = file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
                     RewriteLine(1, "Title: " + file.Tag.Title);
-                    RewriteLine(2, "Artist: " + artist) ; 
+                    RewriteLine(2, "Artist: " + artist);
                     RewriteLine(3, "Album: " + file.Tag.Album);
                     RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
                     RewriteLine(5, "Type \"help\" for a commands list");
-                    Console.SetCursorPosition(0, 4);
+                    Console.SetCursorPosition(0, i);
+                    i += 2;
                     var input = Console.ReadLine();
-                   switch (input)
+                    switch (input)
                     {
+                        case "help":
+                            Console.WriteLine("Commands:");
+                            Console.WriteLine("\"help\": Shows this menu");
+                            Console.WriteLine("\"play\": Unpauses curent song");
+                            Console.WriteLine("\"pause\": Pauses current song");
+                            Console.WriteLine("\"skip\": Skips current song");
+                            Console.WriteLine("\"clear\": Clears the console");
+                            Console.WriteLine("\"stop\": Stops the application");
+                            i += 6;
+                            break;
+                        case "play":
+                            if (outputDevice.PlaybackState != PlaybackState.Playing)
+                            {
+                                outputDevice.Play();
+                                Console.WriteLine("Unpaused \"{0}\"", file.Tag.Title);
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("The song is already playing");
+                            }
+                            break;
+                        case "pause":
+                            if (outputDevice.PlaybackState != PlaybackState.Paused)
+                            {
+                                outputDevice.Pause();
+                                Console.WriteLine("Paused \"{0}\"", file.Tag.Title);
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("The song is already paused");
+                            }
+                            break;
+                        case "skip":
+                            outputDevice.Stop();
+                            break;
+                        case "clear":
+                            Console.Clear();
+                            i = 5;
+                            break;
                         case "stop":
                             Main(args);
                             break;
-                        case "skip":
-
+                        default:
+                            Console.WriteLine("Type \"help\" for a commands list");
                             break;
                     }
                 }
@@ -146,7 +189,7 @@ namespace Simple_Music_Player
                 if (MusicData.queue.Count() >= 1)
                 {
                     playMusic(args);
-                        return;
+                    return;
                 }
             }
             mainProgram(args);
@@ -163,5 +206,5 @@ namespace Simple_Music_Player
     {
         public static List<string> queue = new List<string>();
     }
- 
+
 }
