@@ -9,6 +9,7 @@
     <SignAssembly>false</SignAssembly>
     <ApplicationIcon>music.ico</ApplicationIcon>
     <Platforms>AnyCPU;x86</Platforms>
+    <Version>2.2.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
