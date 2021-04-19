@@ -119,80 +119,103 @@ namespace Simple_Music_Player
                 TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
                 Console.Clear();
                 var i = 5;
+                double ms;
+                var time = audioFile.TotalTime;
+                var artist = file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
+                Console.WriteLine("Title: " + file.Tag.Title);
+                Console.WriteLine("Artist: " + artist);
+                Console.WriteLine("Album: " + file.Tag.Album);
+                RewriteLine(5, "Type \"help\" for a commands list");
                 while (outputDevice.PlaybackState == PlaybackState.Playing || outputDevice.PlaybackState == PlaybackState.Paused)
                 {
-                    Thread.Sleep(1000);
-                    var time = audioFile.TotalTime;
-                    double ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
-                    TimeSpan ts = TimeSpan.FromMilliseconds(ms);
-                    var artist = file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
-                    RewriteLine(1, "Title: " + file.Tag.Title);
-                    RewriteLine(2, "Artist: " + artist);
-                    RewriteLine(3, "Album: " + file.Tag.Album);
-                    RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
-                    RewriteLine(5, "Type \"help\" for a commands list");
                     Console.SetCursorPosition(0, i);
                     i += 2;
-                    var input = Console.ReadLine();
-                    switch (input)
+                    while (true)
                     {
-                        case "help":
-                            Console.WriteLine("Commands:");
-                            Console.WriteLine("\"help\": Shows this menu");
-                            Console.WriteLine("\"play\": Unpauses curent song");
-                            Console.WriteLine("\"pause\": Pauses current song");
-                            Console.WriteLine("\"skip\": Skips current song");
-                            Console.WriteLine("\"clear\": Clears the console");
-                            Console.WriteLine("\"stop\": Stops the application");
-                            i += 6;
-                            break;
-                        case "play":
-                            if (outputDevice.PlaybackState != PlaybackState.Playing)
+                        ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
+                        TimeSpan ts = TimeSpan.FromMilliseconds(ms);
+                        if (Console.KeyAvailable)
+                        {
+                            var input = Console.ReadLine();
+                            switch (input)
                             {
-                                outputDevice.Play();
-                                Console.WriteLine("Unpaused \"{0}\"", file.Tag.Title);
+                                case "help":
+                                    Console.WriteLine("Commands:");
+                                    Console.WriteLine("\"help\": Shows this menu");
+                                    Console.WriteLine("\"play\": Unpauses curent song");
+                                    Console.WriteLine("\"pause\": Pauses current song");
+                                    Console.WriteLine("\"skip\": Skips current song");
+                                    Console.WriteLine("\"clear\": Clears the console");
+                                    Console.WriteLine("\"stop\": Stops the application");
+                                    i += 6;
+                                    break;
+                                case "play":
+                                    if (outputDevice.PlaybackState != PlaybackState.Playing)
+                                    {
+                                        outputDevice.Play();
+                                        Console.WriteLine("Unpaused \"{0}\"", file.Tag.Title);
 
-                            }
-                            else
-                            {
-                                Console.WriteLine("The song is already playing");
-                            }
-                            break;
-                        case "pause":
-                            if (outputDevice.PlaybackState != PlaybackState.Paused)
-                            {
-                                outputDevice.Pause();
-                                Console.WriteLine("Paused \"{0}\"", file.Tag.Title);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("The song is already playing");
+                                    }
+                                    break;
+                                case "pause":
+                                    if (outputDevice.PlaybackState != PlaybackState.Paused)
+                                    {
+                                        outputDevice.Pause();
+                                        Console.WriteLine("Paused \"{0}\"", file.Tag.Title);
 
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("The song is already paused");
+                                    }
+                                    break;
+                                case "skip":
+                                    outputDevice.Stop();
+                                    MusicData.queue.RemoveAt(0);
+                                    if (MusicData.queue.Count() >= 1)
+                                    {
+                                        playMusic(args);
+                                        return;
+                                    }
+                                    else mainProgram(args);
+                                    break;
+                                case "clear":
+                                    Console.Clear();
+                                    RewriteLine(1, "Title: " + file.Tag.Title);
+                                    RewriteLine(2, "Artist: " + artist);
+                                    RewriteLine(3, "Album: " + file.Tag.Album);
+                                    RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
+                                    RewriteLine(5, "Type \"help\" for a commands list");
+                                    i = 5;
+                                    Console.SetCursorPosition(0, i);
+                                    break;
+                                case "stop":
+                                    Main(args);
+                                    break;
+                                default:
+                                    Console.WriteLine("Type \"help\" for a commands list");
+                                    break;
                             }
-                            else
+                        }
+                        RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
+                        if (outputDevice.PlaybackState == PlaybackState.Stopped)
+                        {
+                            MusicData.queue.RemoveAt(0);
+                            if (MusicData.queue.Count() >= 1)
                             {
-                                Console.WriteLine("The song is already paused");
+                                playMusic(args);
+                                return;
                             }
-                            break;
-                        case "skip":
-                            outputDevice.Stop();
-                            break;
-                        case "clear":
-                            Console.Clear();
-                            i = 5;
-                            break;
-                        case "stop":
-                            Main(args);
-                            break;
-                        default:
-                            Console.WriteLine("Type \"help\" for a commands list");
-                            break;
+                            else mainProgram(args);
+                        }
+                        Thread.Sleep(750);
                     }
                 }
-                MusicData.queue.RemoveAt(0);
-                if (MusicData.queue.Count() >= 1)
-                {
-                    playMusic(args);
-                    return;
-                }
             }
-            mainProgram(args);
         }
         public static void RewriteLine(int lineNumber, String newText)
         {
