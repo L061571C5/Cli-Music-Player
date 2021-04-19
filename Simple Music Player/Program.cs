@@ -94,14 +94,14 @@ namespace Simple_Music_Player
                 case true:
                     if (!System.IO.File.Exists(dir))
                     {
-                        Console.WriteLine("That is not a vaild file.");
+                        Console.WriteLine("That is not a valid file.");
                         return "null";
                     }
                     break;
                 case false:
                     if (!Directory.Exists(dir))
                     {
-                        Console.WriteLine("That is not a vaild directory.");
+                        Console.WriteLine("That is not a valid directory.");
                         return "null";
                     }
                     break;
