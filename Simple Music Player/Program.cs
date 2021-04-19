@@ -125,8 +125,8 @@ namespace Simple_Music_Player
                    .ToWaveSource();
                 soundOut = new WasapiOut() { Latency = 100 };
                 soundOut.Initialize(waveSource);
-                soundOut.Volume = MusicData.volume;
                 soundOut.Play();
+                soundOut.Volume = MusicData.volume;
                 TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
                 Console.Clear();
                 var i = 5;
