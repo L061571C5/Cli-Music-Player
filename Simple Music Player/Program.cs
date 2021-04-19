@@ -112,153 +112,165 @@ namespace Simple_Music_Player
         }
         public static void playMusic(string[] args)
         {
-            using (var audioFile = new AudioFileReader(MusicData.queue[0]))
-            using (var outputDevice = new WaveOutEvent())
+            Console.WriteLine(MusicData.queue[0]);
+            try
             {
-                outputDevice.Init(audioFile);
-                outputDevice.Play();
-                TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
-                Console.Clear();
-                var i = 5;
-                double ms;
-                var time = audioFile.TotalTime;
-                var artist = file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
-                Console.WriteLine("Title: " + file.Tag.Title);
-                Console.WriteLine("Artist: " + artist);
-                Console.WriteLine("Album: " + file.Tag.Album);
-                RewriteLine(5, "Type \"help\" for a commands list");
-                while (outputDevice.PlaybackState == PlaybackState.Playing || outputDevice.PlaybackState == PlaybackState.Paused)
+                using (var audioFile = new AudioFileReader(MusicData.queue[0]))
+                using (var outputDevice = new WaveOutEvent())
                 {
-                    Console.SetCursorPosition(0, i);
-                    i += 2;
-                    while (true)
+                    outputDevice.Init(audioFile);
+                    outputDevice.Play();
+                    TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
+                    Console.Clear();
+                    var i = 5;
+                    double ms;
+                    var time = audioFile.TotalTime;
+                    var artist = file.Tag.Performers[0] == "" ? "N/A" : file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
+                    Console.WriteLine("Title: " + file.Tag.Title == ""? file.Name : file.Tag.Title);
+                    Console.WriteLine("Artist: " + artist);
+                    Console.WriteLine("Album: " + file.Tag.Album == ""? "N/A" : file.Tag.Album);
+                    RewriteLine(5, "Type \"help\" for a commands list");
+                    while (outputDevice.PlaybackState == PlaybackState.Playing || outputDevice.PlaybackState == PlaybackState.Paused)
                     {
-                        ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
-                        TimeSpan ts = TimeSpan.FromMilliseconds(ms);
-                        if (Console.KeyAvailable)
+                        Console.SetCursorPosition(0, i);
+                        i += 2;
+                        while (true)
                         {
-                            var input = Console.ReadLine();
-                            switch (input)
+                            ms = outputDevice.GetPosition() * 1000.0 / audioFile.WaveFormat.BitsPerSample / audioFile.WaveFormat.Channels * 8 / audioFile.WaveFormat.SampleRate;
+                            TimeSpan ts = TimeSpan.FromMilliseconds(ms);
+                            if (Console.KeyAvailable)
                             {
-                                case "help":
-                                    Console.WriteLine("Commands:");
-                                    Console.WriteLine("\"help\": Shows this menu");
-                                    Console.WriteLine("\"play\": Unpauses curent song");
-                                    Console.WriteLine("\"pause\": Pauses current song");
-                                    Console.WriteLine("\"skip\": Skips current song");
-                                    Console.WriteLine("\"volume\": Set the volume to a number from 0-100");
-                                    Console.WriteLine("\"clear\": Clears the console");
-                                    Console.WriteLine("\"stop\": Stops the application");
-                                    i += 6;
-                                    break;
-                                case "play":
-                                    if (outputDevice.PlaybackState != PlaybackState.Playing)
-                                    {
-                                        outputDevice.Play();
-                                        Console.WriteLine("Unpaused \"{0}\"", file.Tag.Title);
-
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("The song is already playing");
-                                    }
-                                    break;
-                                case "pause":
-                                    if (outputDevice.PlaybackState != PlaybackState.Paused)
-                                    {
-                                        outputDevice.Pause();
-                                        Console.WriteLine("Paused \"{0}\"", file.Tag.Title);
-
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("The song is already paused");
-                                    }
-                                    break;
-                                case "skip":
-                                    outputDevice.Stop();
-                                    MusicData.queue.RemoveAt(0);
-                                    if (MusicData.queue.Count() >= 1)
-                                    {
-                                        playMusic(args);
-                                        return;
-                                    }
-                                    else mainProgram(args);
-                                    break;
-                                case "clear":
-                                    Console.Clear();
-                                    RewriteLine(1, "Title: " + file.Tag.Title);
-                                    RewriteLine(2, "Artist: " + artist);
-                                    RewriteLine(3, "Album: " + file.Tag.Album);
-                                    RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
-                                    RewriteLine(5, "Type \"help\" for a commands list");
-                                    i = 5;
-                                    Console.SetCursorPosition(0, i);
-                                    break;
-                                case "stop":
-                                    MusicData.queue.RemoveRange(0, MusicData.queue.Count);
-                                    outputDevice.Stop();
-                                    Main(args);
-                                    break;
-                                case "volume":
-                                    bool did = false;
-                                    Console.WriteLine("The current volume is at {0}%", Math.Round(outputDevice.Volume * 100));
-                                    Console.WriteLine("Do you want to change the volume? (y/n)");
-                                    var response = Console.ReadLine().ToLower();
-                                    while (!did)
-                                    {
-                                        if (response == "y")
-                                        {
-                                            float number;
-                                            Console.WriteLine("What volume would you like to change it to?");
-                                            var value = Console.ReadLine();
-                                            bool success = float.TryParse(value, out number);
-                                            if (success)
-                                            {
-                                                if (number > 100f || number < 0f)
-                                                {
-                                                    Console.WriteLine("Volume must be between 0 and 100");
-                                                    break;
-                                                }
-                                                number /= 100;
-                                                outputDevice.Volume = number;
-                                                Console.WriteLine("Volume changed to {0}%", Math.Round(outputDevice.Volume * 100));
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine("\"{0}\" is not a valid number between 0 and 100", value);
-                                            }
-                                            did = true;
-                                            break;
-                                        }
-                                        else if (response == "n")
-                                        {
-                                            did = true;
-                                            break;
-                                        }
-                                        Console.WriteLine("Choose yes (y) or no (n)");
+                                var input = Console.ReadLine();
+                                switch (input)
+                                {
+                                    case "help":
+                                        Console.WriteLine("Commands:");
+                                        Console.WriteLine("\"help\": Shows this menu");
+                                        Console.WriteLine("\"play\": Unpauses curent song");
+                                        Console.WriteLine("\"pause\": Pauses current song");
+                                        Console.WriteLine("\"skip\": Skips current song");
+                                        Console.WriteLine("\"volume\": Set the volume to a number from 0-100");
+                                        Console.WriteLine("\"clear\": Clears the console");
+                                        Console.WriteLine("\"stop\": Stops the application");
+                                        i += 6;
                                         break;
-                                    }
-                                    break;
-                                default:
-                                    Console.WriteLine("Type \"help\" for a commands list");
-                                    break;
+                                    case "play":
+                                        if (outputDevice.PlaybackState != PlaybackState.Playing)
+                                        {
+                                            outputDevice.Play();
+                                            Console.WriteLine("Unpaused \"{0}\"", file.Tag.Title);
+
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("The song is already playing");
+                                        }
+                                        break;
+                                    case "pause":
+                                        if (outputDevice.PlaybackState != PlaybackState.Paused)
+                                        {
+                                            outputDevice.Pause();
+                                            Console.WriteLine("Paused \"{0}\"", file.Tag.Title);
+
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("The song is already paused");
+                                        }
+                                        break;
+                                    case "skip":
+                                        outputDevice.Stop();
+                                        MusicData.queue.RemoveAt(0);
+                                        if (MusicData.queue.Count() >= 1)
+                                        {
+                                            audioFile.Dispose();
+                                            outputDevice.Dispose();
+                                            playMusic(args);
+                                            return;
+                                        }
+                                        else mainProgram(args);
+                                        break;
+                                    case "clear":
+                                        Console.Clear();
+                                        RewriteLine(1, "Title: " + file.Tag.Title);
+                                        RewriteLine(2, "Artist: " + artist);
+                                        RewriteLine(3, "Album: " + file.Tag.Album);
+                                        RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
+                                        RewriteLine(5, "Type \"help\" for a commands list");
+                                        i = 5;
+                                        Console.SetCursorPosition(0, i);
+                                        break;
+                                    case "stop":
+                                        MusicData.queue.RemoveRange(0, MusicData.queue.Count);
+                                        outputDevice.Stop();
+                                        audioFile.Dispose();
+                                        outputDevice.Dispose();
+                                        Main(args);
+                                        break;
+                                    case "volume":
+                                        bool did = false;
+                                        Console.WriteLine("The current volume is at {0}%", Math.Round(outputDevice.Volume * 100));
+                                        Console.WriteLine("Do you want to change the volume? (y/n)");
+                                        var response = Console.ReadLine().ToLower();
+                                        while (!did)
+                                        {
+                                            if (response == "y")
+                                            {
+                                                float number;
+                                                Console.WriteLine("What volume would you like to change it to?");
+                                                var value = Console.ReadLine();
+                                                bool success = float.TryParse(value, out number);
+                                                if (success)
+                                                {
+                                                    if (number > 100f || number < 0f)
+                                                    {
+                                                        Console.WriteLine("Volume must be between 0 and 100");
+                                                        break;
+                                                    }
+                                                    number /= 100;
+                                                    outputDevice.Volume = number;
+                                                    Console.WriteLine("Volume changed to {0}%", Math.Round(outputDevice.Volume * 100));
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("\"{0}\" is not a valid number between 0 and 100", value);
+                                                }
+                                                did = true;
+                                                break;
+                                            }
+                                            else if (response == "n")
+                                            {
+                                                did = true;
+                                                break;
+                                            }
+                                            Console.WriteLine("Choose yes (y) or no (n)");
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        Console.WriteLine("Type \"help\" for a commands list");
+                                        break;
+                                }
                             }
-                        }
-                        RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
-                        if (outputDevice.PlaybackState == PlaybackState.Stopped)
-                        {
-                            MusicData.queue.RemoveAt(0);
-                            if (MusicData.queue.Count() >= 1)
+                            RewriteLine(4, ts.ToString(@"hh\:mm\:ss") + " \\ " + time);
+                            if (outputDevice.PlaybackState == PlaybackState.Stopped)
                             {
-                                playMusic(args);
-                                return;
+                                MusicData.queue.RemoveAt(0);
+                                if (MusicData.queue.Count() >= 1)
+                                {
+                                    audioFile.Dispose();
+                                    outputDevice.Dispose();
+                                    playMusic(args);
+                                    return;
+                                }
+                                else mainProgram(args);
                             }
-                            else mainProgram(args);
+                            Thread.Sleep(1000);
                         }
-                        Thread.Sleep(1000);
                     }
                 }
+            } catch {
+                Console.WriteLine("An error occured, the file that this error occured on is {0} or {1}", MusicData.queue[0], MusicData.queue.Count >= 2? MusicData.queue[1] : "N/A");
             }
         }
         public static void RewriteLine(int lineNumber, String newText)
