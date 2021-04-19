@@ -255,7 +255,7 @@ namespace Simple_Music_Player
                             }
                             else mainProgram(args);
                         }
-                        Thread.Sleep(750);
+                        Thread.Sleep(1000);
                     }
                 }
             }
