@@ -11,6 +11,7 @@ namespace Simple_Music_Player
     {
         static void Main(string[] args)
         {
+            Console.Title = "Simple Music Player";
             mainProgram(args);
         }
         static void mainProgram(string[] args)
@@ -112,7 +113,7 @@ namespace Simple_Music_Player
         public static void playMusic(string[] args)
         {
             using (var audioFile = new AudioFileReader(MusicData.queue[0]))
-            using (var outputDevice = new WaveOut())
+            using (var outputDevice = new WaveOutEvent())
             {
                 outputDevice.Init(audioFile);
                 outputDevice.Play();
