@@ -89,7 +89,7 @@ namespace Simple_Music_Player
             List<string> lst = new List<string>();
             dirChk(targetDirectory, false);
             // Process the list of files found in the directory.
-            var fileEntries = Directory.GetFiles(targetDirectory, "*.mp3", SearchOption.AllDirectories).Union(Directory.GetFiles(targetDirectory, "*.flac", SearchOption.AllDirectories));
+            var fileEntries = Directory.GetFiles(targetDirectory, "*.mp3", SearchOption.AllDirectories).Union(Directory.GetFiles(targetDirectory, "*.flac", SearchOption.AllDirectories)).Union(Directory.GetFiles(targetDirectory, "*.ogg", SearchOption.AllDirectories));
             foreach (string fileName in fileEntries)
                 lst.Add(fileName);
             return lst;
@@ -125,6 +125,7 @@ namespace Simple_Music_Player
                    .ToWaveSource();
                 soundOut = new WasapiOut() { Latency = 100 };
                 soundOut.Initialize(waveSource);
+                soundOut.Volume = MusicData.volume;
                 soundOut.Play();
                 TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
                 Console.Clear();
@@ -154,20 +155,19 @@ namespace Simple_Music_Player
                                 case "help":
                                     Console.WriteLine("Commands:");
                                     Console.WriteLine("\"help\": Shows this menu");
-                                    Console.WriteLine("\"play\": Unpauses curent song");
+                                    Console.WriteLine("\"resume\": Resumes curent song");
                                     Console.WriteLine("\"pause\": Pauses current song");
                                     Console.WriteLine("\"skip\": Skips current song");
-                                    Console.WriteLine("\"volume\": Set the volume to a number from 0-100");
+                                    Console.WriteLine("\"volume\": View current volume or set the volume to a number from 0-100");
                                     Console.WriteLine("\"clear\": Clears the console");
                                     Console.WriteLine("\"stop\": Stops the application");
                                     i += 6;
                                     break;
-                                case "play":
+                                case "resume":
                                     if (soundOut.PlaybackState != PlaybackState.Playing)
                                     {
                                         soundOut.Play();
                                         Console.WriteLine("Unpaused \"{0}\"", file.Tag.Title);
-
                                     }
                                     else
                                     {
@@ -179,7 +179,6 @@ namespace Simple_Music_Player
                                     {
                                         soundOut.Pause();
                                         Console.WriteLine("Paused \"{0}\"", file.Tag.Title);
-
                                     }
                                     else
                                     {
@@ -217,9 +216,9 @@ namespace Simple_Music_Player
                                     bool did = false;
                                     Console.WriteLine("The current volume is at {0}%", Math.Round(soundOut.Volume * 100));
                                     Console.WriteLine("Do you want to change the volume? (y/n)");
-                                    var response = Console.ReadLine().ToLower();
                                     while (!did)
                                     {
+                                        var response = Console.ReadLine().ToLower();
                                         if (response == "y")
                                         {
                                             float number;
@@ -235,6 +234,7 @@ namespace Simple_Music_Player
                                                 }
                                                 number /= 100;
                                                 soundOut.Volume = number;
+                                                MusicData.volume = number;
                                                 Console.WriteLine("Volume changed to {0}%", Math.Round(soundOut.Volume * 100));
                                             }
                                             else
@@ -250,7 +250,6 @@ namespace Simple_Music_Player
                                             break;
                                         }
                                         Console.WriteLine("Choose yes (y) or no (n)");
-                                        break;
                                     }
                                     break;
                                 default:
@@ -298,6 +297,7 @@ namespace Simple_Music_Player
     static class MusicData
     {
         public static List<string> queue = new List<string>();
+        public static float volume = 1f;
     }
 
 }
