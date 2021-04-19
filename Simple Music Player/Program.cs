@@ -132,7 +132,7 @@ namespace Simple_Music_Player
                 double ms;
                 TimeSpan time = waveSource.GetTime(waveSource.Length);
                 var title = String.IsNullOrWhiteSpace(file.Tag.Title) ? file.Name.Split("\\")[file.Name.Split("\\").Length - 1].Split(".")[0] : file.Tag.Title;
-                var artist = String.IsNullOrWhiteSpace(file.Tag.Performers[0]) ? "N/A" : file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
+                var artist = file.Tag.Performers.Length == 0 ? "N/A" : file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
                 var album = String.IsNullOrWhiteSpace(file.Tag.Album) ? "N/A" : file.Tag.Album;
                 Console.WriteLine("Title: " + title);
                 Console.WriteLine("Artist: " + artist);
