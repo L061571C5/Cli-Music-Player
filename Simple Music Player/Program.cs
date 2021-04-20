@@ -120,17 +120,17 @@ namespace Simple_Music_Player
         {
             try
             {
-                waveSource = CodecFactory.Instance.GetCodec(MusicData.queue[0])
-                   .ToSampleSource()
-                   .ToWaveSource();
+                Console.Clear();
+                var i = 5;
+                //initialize file and play
+                waveSource = CodecFactory.Instance.GetCodec(MusicData.queue[0]).ToSampleSource().ToWaveSource();
                 soundOut = new WasapiOut() { Latency = 100 };
                 soundOut.Initialize(waveSource);
                 soundOut.Play();
                 soundOut.Volume = MusicData.volume;
+
+                //get the tags
                 TagLib.File file = TagLib.File.Create(MusicData.queue[0]);
-                Console.Clear();
-                var i = 5;
-                double ms;
                 TimeSpan time = waveSource.GetTime(waveSource.Length);
                 var title = String.IsNullOrWhiteSpace(file.Tag.Title) ? file.Name.Split("\\")[file.Name.Split("\\").Length - 1].Split(".")[0] : file.Tag.Title;
                 var artist = file.Tag.Performers.Length == 0 ? "N/A" : file.Tag.Performers.Length > 1 ? String.Join(", ", file.Tag.Performers) : file.Tag.Performers[0];
@@ -139,13 +139,16 @@ namespace Simple_Music_Player
                 Console.WriteLine("Artist: " + artist);
                 Console.WriteLine("Album: " + album);
                 RewriteLine(5, "Type \"help\" for a commands list");
+
+                //commands while playing 
                 while (soundOut.PlaybackState == PlaybackState.Playing || soundOut.PlaybackState == PlaybackState.Paused)
                 {
                     Console.SetCursorPosition(0, i);
                     i += 2;
                     while (true)
                     {
-                        ms = waveSource.Position * 1000.0 / waveSource.WaveFormat.BitsPerSample / waveSource.WaveFormat.Channels * 8 / waveSource.WaveFormat.SampleRate;
+                        //get the time
+                        double ms = waveSource.Position * 1000.0 / waveSource.WaveFormat.BitsPerSample / waveSource.WaveFormat.Channels * 8 / waveSource.WaveFormat.SampleRate;
                         TimeSpan ts = TimeSpan.FromMilliseconds(ms);
                         if (Console.KeyAvailable)
                         {
