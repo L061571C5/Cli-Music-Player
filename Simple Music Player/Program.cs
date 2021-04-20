@@ -6,18 +6,20 @@ using System.Threading;
 using CSCore;
 using CSCore.Codecs;
 using CSCore.SoundOut;
+using DiscordRPC;
 
 namespace Simple_Music_Player
 {
-
     class Program
     {
+        public static DiscordRpcClient client = new DiscordRpcClient("834077982628511764");
         public static ISoundOut soundOut;
         public static IWaveSource waveSource;
-
+        public static bool rpcInitialised = false;
         static void Main(string[] args)
         {
             Console.Title = "Simple Music Player";
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             mainProgram(args);
         }
         static void mainProgram(string[] args)
@@ -120,6 +122,11 @@ namespace Simple_Music_Player
         {
             try
             {
+                if (!rpcInitialised)
+                {
+                    client.Initialize();
+                    rpcInitialised = true;
+                }
                 Console.Clear();
                 var i = 5;
                 //initialize file and play
@@ -150,6 +157,7 @@ namespace Simple_Music_Player
                         //get the time
                         double ms = waveSource.Position * 1000.0 / waveSource.WaveFormat.BitsPerSample / waveSource.WaveFormat.Channels * 8 / waveSource.WaveFormat.SampleRate;
                         TimeSpan ts = TimeSpan.FromMilliseconds(ms);
+                        setPresence(title, artist, (time.TotalMilliseconds - ms), "logo", album, soundOut.PlaybackState == PlaybackState.Playing ? "playing" : "paused");
                         if (Console.KeyAvailable)
                         {
                             var input = Console.ReadLine();
@@ -290,11 +298,32 @@ namespace Simple_Music_Player
         }
         public static void CleanupPlayback()
         {
+            //client.Dispose();
             soundOut.Dispose();
             soundOut = null;
             waveSource.Dispose();
             waveSource = null;
 
+        }
+        public static void setPresence(string a, string b, double c, string d, string e, string f)
+        {
+            client.SetPresence(new RichPresence()
+            {
+                Details = a,
+                State = "By: " + b,
+                Timestamps = Timestamps.FromTimeSpan(c / 1000),
+                Assets = new Assets()
+                {
+                    LargeImageKey = d,
+                    LargeImageText = e,
+                    SmallImageKey = f,
+
+                }
+            });
+        }
+        static void OnProcessExit(object sender, EventArgs e)
+        {
+            client.Dispose();
         }
     }
     static class MusicData
